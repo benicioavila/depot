@@ -1,9 +1,7 @@
 class StoreController < ApplicationController
   def index
-		debugger    
-		@count = counter_index        
+    @count = counter_index        
     @products = Product.all
-		
   end
   
 
