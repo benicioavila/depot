@@ -21,9 +21,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-#gem 'linecache19', :git => 'https://github.com/mark-moseley/linecache.git'
-#gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
-#gem 'ruby-debug19'
+gem 'linecache19', :git => 'https://github.com/mark-moseley/linecache.git'
+gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
+gem 'ruby-debug19'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
