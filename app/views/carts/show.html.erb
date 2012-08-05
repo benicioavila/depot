@@ -2,12 +2,30 @@
 <p id="notice"><%= notice %></p>
 <% end%>
 
-<h2> Your pragmatic cart </h2>
+<% if @cart.total_price != 0 %> 
+<div class="cart_title"> Items Adicionandos no carrinho </div>
+<br>
+<table>
 
-<ul>
     <% for item in @cart.line_items %>
-       <li><%= item.quantity %> &times; <%= item.product.title %></li>
+    <tr>
+       <td><%= item.quantity %> &times; </td>
+       <td><%= item.product.title %></td>
+       <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+       <td><%= link_to 'Excluir item', item, confirm: 'Are you sure?', method: :delete %></td> 
+
+   </tr>
     <% end %>
-</ul>
-<%= button_to 'Empty cart', @cart, :method => :delete,:confirm => 'Are you sure?' %>
+    
+    <tr class="total_line" >
+		<td colspan="2" >Total</td>
+		<td class="total_cell" ><%= number_to_currency(@cart.total_price) %></td>
+   
+	</tr>
+</table>
+<%= button_to 'Apagar tudo', @cart, :method => :delete,:confirm => 'Are you sure?' %>
+
+<% else %>
+  <div class="cart_title"> Carrinho vazio </div>
+<% end %> 
 

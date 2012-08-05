@@ -41,14 +41,10 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     session[:counter]= 0 if session[:counter]      
-    
-
-		debugger
+    #debugger
     @cart = current_cart
     product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product.id)
-
-    
+    @line_item = @cart.add_product(product.id,product.price)    
 
     respond_to do |format|
       if @line_item.save
@@ -82,9 +78,12 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
+    cart = current_cart
+
 
     respond_to do |format|
-      format.html { redirect_to line_items_url }
+      #format.html { redirect_to line_items_url }
+      format.html { redirect_to "/carts/#{cart.id}" }
       format.json { head :no_content }
     end
   end
