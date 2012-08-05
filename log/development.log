@@ -17736,3 +17736,7 @@ Completed 200 OK in 72ms (Views: 69.3ms | ActiveRecord: 0.0ms)
 Started POST "/line_items" for 127.0.0.1 at 2012-07-28 12:25:59 -0300
 Processing by LineItemsController#create as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"zSws/jhX6+Z1RdY+sg8XLY3gilMNjDL4O+gc1yfjw88=", "line_item"=>{"product_id"=>"1", "cart_id"=>"1"}, "commit"=>"Criar Line item"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "carts" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Sat, 28 Jul 2012 16:08:26 BRT -03:00], ["updated_at", Sat, 28 Jul 2012 16:08:26 BRT -03:00]]
+  [1m[36m (309.1ms)[0m  [1mcommit transaction[0m
+Completed   in 13347017ms
