@@ -1,11 +1,11 @@
 class StoreController < ApplicationController
   def index
-		debugger    
+		#debugger    
 		@count = counter_index        
+    @cart = current_cart
     @products = Product.all
-		
-  end
-  
+
+  end  
 
   def counter_index
     if session[:counter].nil?
@@ -13,11 +13,7 @@ class StoreController < ApplicationController
     else
         session[:counter] += 1
     end
-
      session[:counter]
   end
-
-
- 
 
 end
